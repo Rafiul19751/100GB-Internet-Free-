@@ -161,6 +161,11 @@
         .content-section.hidden {
             display: none !important;
         }
+        .content-section.fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
 
         .content-section h2, .content-section h3 {
             color: var(--primary-color);
@@ -250,11 +255,20 @@
             border-radius: 8px;
             background-color: rgba(220, 53, 69, 0.1);
         }
+        #telegram-join-section .timer-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
         #telegram-join-section .timer-text {
             color: var(--warning-color);
             font-weight: bold;
             font-size: 1.1em;
             margin-bottom: 10px;
+        }
+        #countdown-timer {
+            font-size: 1.5em;
+            color: var(--warning-color);
+            font-weight: bold;
         }
         #telegram-join-section #proceed-to-step2-button {
             background-color: var(--success-color);
@@ -449,9 +463,9 @@
                 <p class="warning">
                     <strong>IMPORTANT SECURITY NOTICE:</strong> This is a promotional offer related to the national election. To claim your data pack, you must join our official Telegram channel. Be wary of any third-party links or requests for payment. Clicking the button below will take you to Telegram.
                 </p>
-                <div class="timer-section" style="margin-bottom: 20px;">
+                <div class="timer-section">
                     <p class="timer-text">Please wait for 10 seconds after joining to proceed.</p>
-                    <p id="countdown-timer" style="font-size: 1.5em; color: var(--warning-color); font-weight: bold;">10</p>
+                    <p id="countdown-timer">10</p>
                 </div>
                 <a href="https://t.me/FTearning72" id="join-telegram-button" class="action-button" target="_blank" rel="noopener noreferrer">Join Telegram Channel</a>
                 <button id="proceed-to-step2-button" class="action-button hidden" disabled>Proceed to Step 2</button>
@@ -530,7 +544,6 @@
         const currentUrl = window.location.href;
         const finalShareText = shareTextTemplate + currentUrl;
 
-
         // --- Function to show sections ---
         function showSection(sectionToShow) {
             document.querySelectorAll('.content-section').forEach(section => {
@@ -552,6 +565,7 @@
         closeModalButton.addEventListener('click', () => {
             congratulationsModal.classList.remove('show');
             mainOfferSection.classList.remove('hidden');
+            // Animate the page container fade-in and slide-up
             document.querySelector('.page-container').style.opacity = '1';
             document.querySelector('.page-container').style.transform = 'translateY(0)';
         });
@@ -571,11 +585,15 @@
 
         // --- Initial Load / Page Entry ---
         window.addEventListener('load', () => {
-            showSection(mainOfferSection); // Ensure main offer is visible by default
-            mainOfferSection.classList.remove('hidden');
+            // Ensure sections are initially hidden except the modal and main section container
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            mainOfferSection.classList.remove('hidden'); // Show main offer section
 
             showCongratulationsModal(); // Show modal immediately on load
 
+            // Enable confirmation button only when phone number is entered and shares are complete
             phoneNumberInput.addEventListener('input', () => {
                 if (phoneNumberInput.value.trim() !== '' && currentShareProgress >= 100) {
                     confirmationButton.disabled = false;
@@ -600,9 +618,10 @@
             setTimeout(() => {
                 mainOfferSection.classList.add('hidden');
                 spinOfferSection.classList.remove('hidden');
-                spinOfferSection.classList.add('fade-in');
+                spinOfferSection.style.display = 'block'; // Ensure it's block to animate
+                spinOfferSection.classList.add('fade-in'); // Apply fade-in animation
                 window.scrollTo(0, 0);
-            }, 500);
+            }, 500); // Match CSS transition duration
         });
 
         // --- "Spin Now" Button Functionality ---
@@ -615,16 +634,18 @@
                 spinImage.classList.remove('spinning');
                 spinNowButton.style.display = 'none';
 
-                const possibleGBs =;
+                const possibleGBs = [5, 10, 20, 30, 40, 50];
                 wonGB = possibleGBs[Math.floor(Math.random() * possibleGBs.length)];
 
                 gbWonMessage.innerHTML = `🎉 Congratulations! You won ${wonGB}GB Data! 🎉`;
                 gbWonMessage.classList.remove('hidden');
                 gbWonMessage.classList.add('visible');
 
+                // Transition to the claim steps section after a short delay
                 setTimeout(() => {
                     showSection(claimStepsSection);
-                    claimStepsSection.classList.add('fade-in');
+                    claimStepsSection.style.display = 'block'; // Ensure it's block to animate
+                    claimStepsSection.classList.add('fade-in'); // Apply fade-in animation
                     startTelegramCountdown();
                     window.scrollTo(0, 0);
                 }, 1000);
@@ -639,7 +660,7 @@
             countdownTimer.textContent = timeLeft;
             proceedToStep2Button.disabled = true;
             proceedToStep2Button.textContent = 'Wait for countdown...';
-            joinTelegramButton.style.display = 'inline-block';
+            joinTelegramButton.style.display = 'inline-block'; // Ensure join button is visible
 
             countdownInterval = setInterval(() => {
                 timeLeft--;
@@ -654,30 +675,34 @@
             }, 1000);
         }
 
+        // Event listener for the "Proceed to Step 2" button
         proceedToStep2Button.addEventListener('click', () => {
             if (!proceedToStep2Button.disabled) {
                 claimStepsSection.classList.add('fade-out');
                 setTimeout(() => {
                     document.getElementById('telegram-join-section').classList.add('hidden');
                     document.getElementById('sharing-section').classList.remove('hidden');
-                    claimStepsSection.classList.remove('fade-out');
-                    claimStepsSection.classList.add('fade-in');
-                    updateProgressBar(0);
-                    submitPhoneButton.disabled = true;
-                    phoneNumberInput.value = '';
-                    phoneNumberInput.disabled = true;
-                    confirmationButton.disabled = true;
+                    claimStepsSection.classList.remove('fade-out'); // Remove fade-out class
+                    claimStepsSection.classList.add('fade-in'); // Apply fade-in class
+                    updateProgressBar(0); // Initialize progress bar to 0%
+                    submitPhoneButton.disabled = true; // Disable submit button initially
+                    phoneNumberInput.value = ''; // Clear phone number
+                    phoneNumberInput.disabled = true; // Disable input until shares are complete
+                    confirmationButton.disabled = true; // Disable confirmation button
                     window.scrollTo(0, 0);
-                }, 500);
+                }, 500); // Match CSS transition duration
             }
         });
 
 
         // --- Share Button Functionalities and Progress Bar ---
         function updateProgressBar(progress) {
+            // Ensure progress is between 0 and 100
             currentShareProgress = Math.min(100, Math.max(0, progress));
             progressBar.style.width = currentShareProgress + '%';
+            progressBar.textContent = Math.round(currentShareProgress) + '%'; // Display percentage
 
+            // Update text and enable/disable submit button based on progress
             if (currentShareProgress < 100) {
                 progressInfoText.textContent = `Share with ${requiredShares} friends. You're ${Math.round(currentShareProgress / shareAmountIncrease)}/${requiredShares} done!`;
                 submitPhoneButton.disabled = true;
@@ -685,88 +710,126 @@
                 confirmationButton.disabled = true;
             } else {
                 progressInfoText.textContent = `Share completion reached! Enter your number to claim.`;
-                submitPhoneButton.disabled = false;
-                phoneNumberInput.disabled = false;
-                confirmationButton.disabled = false;
+                submitPhoneButton.disabled = false; // Enable submit button
+                phoneNumberInput.disabled = false; // Enable phone number input
+                confirmationButton.disabled = phoneNumberInput.value.trim() === ''; // Enable confirmation if number is entered
             }
         }
 
         function handleShareClick() {
             shareCount++;
+            // Calculate progress based on shares, capped at 100%
             currentShareProgress = Math.min(100, shareCount * shareAmountIncrease);
             updateProgressBar(currentShareProgress);
         }
 
+        // Copy Link Button
         copyLinkButton.addEventListener('click', function() {
             navigator.clipboard.writeText(finalShareText).then(() => {
                 copyNotification.textContent = 'Link copied!';
                 copyNotification.classList.add('show');
                 setTimeout(() => { copyNotification.classList.remove('show'); }, 2000);
-                handleShareClick();
+                handleShareClick(); // Update progress
             }).catch(err => {
                 console.error('Failed to copy: ', err);
-                alert('Could not copy link. Please copy manually.');
+                // Fallback for browsers that don't support navigator.clipboard or if error occurs
+                alert('Could not copy link automatically. Please copy manually: ' + finalShareText);
+                // Even on error, count it as an attempt if we can't prevent duplicates
+                handleShareClick();
             });
         });
 
+        // WhatsApp Share Button
         whatsappShareButton.addEventListener('click', function() {
             const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(finalShareText)}`;
-            window.open(whatsappUrl, '_blank');
-            handleShareClick();
+            window.open(whatsappUrl, '_blank'); // Open in a new tab
+            handleShareClick(); // Update progress
         });
 
+        // Telegram Share Button
         telegramShareButton.addEventListener('click', function() {
+            // Construct the Telegram share URL
+            // The text parameter should be the message, url is optional but good to include for context
             const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareTextTemplate.replace('Link: ', ''))}`; // Use template without "Link: " again for text
-            window.open(telegramUrl, '_blank');
-            handleShareClick();
+            window.open(telegramUrl, '_blank'); // Open in a new tab
+            handleShareClick(); // Update progress
         });
 
         // --- Phone Input and Final Confirmation Logic ---
+        // Show phone input section when shares are complete
         submitPhoneButton.addEventListener('click', () => {
             if (currentShareProgress >= 100) {
                 phoneInputSection.classList.remove('hidden');
-                phoneInputSection.classList.add('fade-in');
-                phoneNumberInput.disabled = false;
-                confirmationButton.disabled = phoneNumberInput.value.trim() === '';
-                window.scrollTo(0, document.body.scrollHeight);
+                phoneInputSection.style.display = 'block'; // Ensure it's block to animate
+                phoneInputSection.classList.add('fade-in'); // Apply fade-in animation
+                phoneNumberInput.disabled = false; // Enable input
+                confirmationButton.disabled = phoneNumberInput.value.trim() === ''; // Enable confirmation button if number is entered
+                window.scrollTo(0, document.body.scrollHeight); // Scroll to bottom to show the input
             }
         });
 
+        // Final confirmation button click
         confirmationButton.addEventListener('click', function() {
             const phoneNumber = phoneNumberInput.value.trim();
-            const phoneRegex = /^\+?[0-9\s-]{7,}$/; // Basic validation
+            // Basic phone number validation (allows numbers, spaces, hyphens, and an optional leading '+')
+            const phoneRegex = /^\+?[0-9\s-]{7,}$/;
 
             if (!phoneRegex.test(phoneNumber)) {
                 alert("Please enter a valid phone number.");
-                return;
+                return; // Stop if validation fails
             }
 
+            // Disable button and change text to prevent multiple submissions
             confirmationButton.disabled = true;
             confirmationButton.textContent = 'Processing...';
 
+            // Simulate server processing and show final alert
             setTimeout(() => {
-                alert("Congratulations! Your data reward will be processed and credited within 24 hours after admin verification.");
-                // Reset and hide sections, or redirect
+                // User's requested alert message
+                alert("এডমিন গণ যাচাই করার পরে ২৪ ঘন্টার মধ্যে ডাটা পেয়ে যাবেন");
+
+                // Reset the page or redirect, or hide sections and show success message
+                // For this example, we'll reset to the initial state after the alert
                 mainOfferSection.classList.remove('hidden');
+                mainOfferSection.style.display = 'block'; // Ensure it's block to animate
                 mainOfferSection.classList.add('fade-in');
-                document.getElementById('spin-offer-section').classList.add('hidden');
-                document.getElementById('claim-steps-section').classList.add('hidden');
-                document.getElementById('phone-input-section').classList.add('hidden');
-                window.scrollTo(0, 0);
+                spinOfferSection.classList.add('hidden');
+                claimStepsSection.classList.add('hidden');
+                phoneInputSection.classList.add('hidden');
+                window.scrollTo(0, 0); // Scroll back to top
+
+                // Reset button states and values for potential re-engagement or just to clean up
                 confirmationButton.textContent = 'Claim My Data'; // Reset button text
-            }, 1500);
+                phoneNumberInput.value = ''; // Clear input field
+                wonGB = 0;
+                shareCount = 0;
+                currentShareProgress = 0;
+                updateProgressBar(0); // Reset progress bar
+                spinNowButton.style.display = 'inline-block'; // Show spin button again
+                gbWonMessage.classList.add('hidden'); // Hide won message
+                gbWonMessage.classList.remove('visible');
+                spinNowButton.disabled = false; // Enable spin button
+                phoneNumberInput.disabled = true; // Re-disable input
+
+            }, 1500); // Simulate processing time
         });
 
-        // --- Image Error Handling ---
+        // --- Placeholder Image Fallback and Error Handling ---
         document.querySelectorAll('img').forEach(img => {
             img.onerror = function() {
-                this.alt = "Image failed to load";
-                this.style.display = 'none';
+                console.error("Image failed to load:", this.src);
+                this.alt = "Image not available";
+                // Provide a fallback placeholder if the image fails to load
+                this.src = 'https://via.placeholder.com/150/CCCCCC/FFFFFF?text=Image+Error';
+                this.style.display = 'block'; // Make sure it's displayed
             };
-            // Fallback images if files are not found
-            if (img.src.endsWith('Cover.png') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/550x300/212121/FFFFFF?text=Election+Offer';
-            if (img.src.endsWith('Spin.png') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/350x350/333333/FFFFFF?text=Spin+Wheel';
-            if (img.src.endsWith('Click Here.gif') && img.src.startsWith('blob')) img.src = 'https://via.placeholder.com/280x80/28a745/FFFFFF?text=Click+Here';
+            // Optional: If the original src is a blob or invalid, provide a static placeholder
+            // This check is basic and might need refinement based on actual error sources
+            if (img.src.endsWith('.gif') || img.src.endsWith('.png') || img.src.endsWith('.jpg')) {
+                // Check if the image is not yet loaded or is an error
+                // This is tricky without a load event. For static images, we assume they should load.
+                // If you have many images that might not exist, pre-fetching or checking existence is better.
+            }
         });
     </script>
 </body>
